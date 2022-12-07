@@ -4,13 +4,62 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-const questions = [];
+// const questions = [];
+inquirer
+    .prompt([
+       {
+         type: 'input',
+        name: 'project name',
+        message: 'What is the name of your project?',
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'Please enter a description about your project',
+      },
+      {
+        type: 'list',
+        name: 'license',
+        message: 'What license did you use?',
+        choices: ['MIT', 'Apache', 'GPL', 'BSD', 'N/A'],
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub user name?',
+      },
+      {
+        type: 'input',
+        name: 'github url',
+        message: 'What is the link to your GitHub account',
+      },
+      {
+        type: 'input',
+        name: 'linkedin',
+        message: 'What is the link to your Linkedin account?',
+      },
+      {
+        type: 'input',
+        name: 'installation',
+        message: 'What are the instructions for installation of the application?',
+      },
+      {
+        type: 'input',
+        name: 'usage',
+        message: 'What are the instructions for usage? (either type out or paste a link to instructions)',
+      },
+    ])
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+// function init() {}
 
 // Function call to initialize app
-init();
+// init();
