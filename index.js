@@ -53,7 +53,25 @@ inquirer
         name: 'usage',
         message: 'What are the instructions for usage? (either type out or paste a link to instructions)',
       },
+      {
+        type: 'input',
+        name: 'credits',
+        message: 'Who do you credit for this project?',
+      },
     ])
+
+// Template for README.md
+const template = `# ${title}
+
+* [description](#description)
+* [license](#license)
+* [email](#email)
+* [github](#github)
+* [github url](#github url)
+* [linkedin](#linkedin)
+* [installation](#installation)
+* [usage](#usage)
+* [credits](#credits)
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
