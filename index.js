@@ -86,7 +86,7 @@ ${license}
 * Email ${email}
 * Github ${github}
 * Github URL${githuburl}
-* Linkedin ${linkedin}
+* Linkedin ${linkedin}`
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
