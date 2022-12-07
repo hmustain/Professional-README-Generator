@@ -72,6 +72,21 @@ const template = `# ${title}
 * [installation](#installation)
 * [usage](#usage)
 * [credits](#credits)
+## Description
+${description}
+## Installation
+${installation}
+## Usage
+${usage}
+## Credits
+${credits}
+## License
+${license}
+## Contact
+* Email ${email}
+* Github ${github}
+* Github URL${githuburl}
+* Linkedin ${linkedin}
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
