@@ -104,6 +104,11 @@ inquirer
 
 
 // TODO: Create a function to write README file
+.then((answers) => {
+    const readmeContent = generateReadme(answers);
+
+    fs.writeFile('README.md', readmeContent, (err) => err ? console.log (err) : console.log ('Successfully created README.md!'));
+});
 // function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
