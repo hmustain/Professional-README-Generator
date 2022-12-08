@@ -3,14 +3,46 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// const { title } = require('process');
+
 // TODO: Create an array of questions for user input
 // prev lesson 20 and youtube video https://www.youtube.com/watch?v=2VUQABoFOqw
-// const questions = [];
+const generateReadme = ({ title, description, installation, usage, credits, license, contact}) =>
+
+`# Your Project Title
+${title}
+
+## Description
+${description}
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+## Credits
+${credits}
+
+## License
+${license}
+
+
+## Badges
+
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+
+Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+
+## Contact
+'If you would like to reach me or have any questions, a list for how to contact me is provided${contact}
+`
+
 inquirer
     .prompt([
        {
          type: 'input',
-        name: 'project name',
+        name: 'title',
         message: 'What is the name of your project?',
         validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
       },
@@ -28,25 +60,25 @@ inquirer
       },
       {
         type: 'input',
-        name: 'email',
+        name: 'contact',
         message: 'What is your email address?',
         validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
       },
       {
         type: 'input',
-        name: 'github',
+        name: 'contact',
         message: 'What is your GitHub user name?',
         validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
       },
       {
         type: 'input',
-        name: 'github url',
+        name: 'contact',
         message: 'What is the link to your GitHub account',
         validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
       },
       {
         type: 'input',
-        name: 'linkedin',
+        name: 'contact',
         message: 'What is the link to your Linkedin account?',
         validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
       },
@@ -70,35 +102,13 @@ inquirer
       },
     ])
 
-// Template for README.md
-// const template = `# ${title}
-
-// * [description](#description)
-// * [license](#license)
-// * [email](#email)
-// * [github](#github)
-// * [github url](#github url)
-// * [linkedin](#linkedin)
-// * [installation](#installation)
-// * [usage](#usage)
-// * [credits](#credits)
-// ## Description
-// ${description}
-// ## Installation
-// ${installation}
-// ## Usage
-// ${usage}
-// ## Credits
-// ${credits}
-// ## License
-// ${license}
-// ## Contact
-// * Email ${email}
-// * Github ${github}
-// * Github URL${githuburl}
-// * Linkedin ${linkedin}`
 
 // TODO: Create a function to write README file
+.then((answers) => {
+    const readmeContent = generateReadme(answers);
+
+    fs.writeFile('README.md', readmeContent, (err) => err ? console.log (err) : console.log ('Successfully created README.md!'));
+});
 // function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
