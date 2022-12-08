@@ -9,34 +9,34 @@ const fs = require('fs');
 // prev lesson 20 and youtube video https://www.youtube.com/watch?v=2VUQABoFOqw
 const generateReadme = ({ title, description, installation, usage, credits, license, contact}) =>
 
-`# Your Project Title`
-`${title}`
+`# Your Project Title
+${title}
 
-`## Description`
-`${description}`
+## Description
+${description}
 
-`## Installation`
-`${installation}`
+## Installation
+${installation}
 
-`## Usage`
-`${usage}`
+## Usage
+${usage}
 
-`## Credits`
-`${credits}`
+## Credits
+${credits}
 
-`## License`
-`${license}`
+## License
+${license}
 
 
-`## Badges
+## Badges
 
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.`
+Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 
-`## Contact`
-`${contact}`
-
+## Contact
+${contact}
+`
 
 inquirer
     .prompt([
