@@ -2,7 +2,7 @@
 // Went back to lesson 20 to find the files to attach at the top
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {renderLicenseBadge} = require ("./generateMarkdown");
+const {renderLicenseBadge, renderLicenseLink} = require ("./generateMarkdown");
 
 // const { title } = require('process');
 
@@ -11,8 +11,6 @@ const {renderLicenseBadge} = require ("./generateMarkdown");
 const generateReadme = ({ title, description, installation, usage, credits, license, email, github, gurl}) =>
 
 `# ${title}
-
-## License
 ${renderLicenseBadge(license)}
 
 ## Description
@@ -23,6 +21,7 @@ ${description}
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
+- [License](#license)
 - [Questions](#questions)
 
 ## Installation
@@ -33,6 +32,11 @@ ${usage}
 
 ## Credits
 ${credits}
+
+## License
+${renderLicenseBadge(license)}
+${renderLicenseLink(license)}
+
 
 
 ## Questions
