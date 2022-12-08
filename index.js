@@ -41,7 +41,8 @@ ${renderLicenseLink(license)}
 
 ## Questions
 If you have questions and would like to email me please email me @ ${email} <br>
-My GitHub user name and link to my profile can be found here ${github} ${gurl}
+My GitHub user name and link to my profile can be found here <a href="${gurl}">${github}</a>
+
 `
 
 inquirer
