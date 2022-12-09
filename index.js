@@ -2,17 +2,14 @@
 // Went back to lesson 20 to find the files to attach at the top
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {renderLicenseBadge} = require ("./generateMarkdown");
+const {renderLicenseBadge, renderLicenseLink, renderLicenseSection, renderContributingBadge,renderContributingLink} = require ("./generateMarkdown");
 
-// const { title } = require('process');
 
 // TODO: Create an array of questions for user input
 // prev lesson 20 and youtube video https://www.youtube.com/watch?v=2VUQABoFOqw
-const generateReadme = ({ title, description, installation, usage, credits, license, email, github, gurl}) =>
+const generateReadme = ({ username, title, description, installation, usage, credits, license, email, github, gurl, contributing, tests}) =>
 
 `# ${title}
-
-## License
 ${renderLicenseBadge(license)}
 
 ## Description
@@ -23,6 +20,9 @@ ${description}
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
+- [Contributing](#contributing)
+- [License](#license)
+- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
@@ -34,14 +34,32 @@ ${usage}
 ## Credits
 ${credits}
 
+## Contributing
+${renderContributingBadge(contributing)} <br>
+${renderContributingLink(contributing)}
+
+## License
+${renderLicenseBadge(license)}
+${renderLicenseSection(license, username)}
+${renderLicenseLink(license)}
+
+## Tests
+${tests}
 
 ## Questions
 If you have questions and would like to email me please email me @ ${email} <br>
-My GitHub user name and link to my profile can be found here ${github} ${gurl}
+My GitHub user name and link to my profile can be found by clicking my username <a href="${gurl}">${github}</a>
+
 `
 
 inquirer
     .prompt([
+      {
+        type: 'input',
+       name: 'username',
+       message: 'What is your first and last name?',
+       validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
+     },
        {
          type: 'input',
         name: 'title',
@@ -94,6 +112,18 @@ inquirer
         type: 'input',
         name: 'credits',
         message: 'Who do you credit for this project?',
+        validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
+      },
+      {
+        type: 'list',
+        name: 'contributing',
+        message: 'Do you want to allow other developers to contribute to your project?',
+        choices: ['Yes', 'No'],
+      },
+      {
+        type: 'input',
+        name: 'tests',
+        message: 'Enter all the different tests that can be performed with code examples. If not, just put n/a',
         validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
       },
     ])
