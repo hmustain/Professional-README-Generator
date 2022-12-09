@@ -1,5 +1,5 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
-// If user selects "n/a" then return unlicensed badge/link
+// If user selects "n/a" then return unlicensed badge
 
 function renderLicenseBadge(license) {
     if (license === "MIT") {
@@ -14,15 +14,15 @@ function renderLicenseBadge(license) {
     if (license === 'BSD') {
         return `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
     ` }
-    else 
-    return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+    else
+        return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
     `
 }
 
-// TODO: Create a function that returns the license link
-// If user selects "n/a" then return unlicensed badge/link
+// TODO: Create a function that returns the license section
+// If user selects "n/a" then return documentation for unlicensed section
 function renderLicenseSection(license, username) {
-    if (license ==="MIT") {
+    if (license === "MIT") {
         return `Copyright 2022 ${username}
 
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -299,7 +299,7 @@ function renderLicenseSection(license, username) {
         THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
     }
     else
-    return `This is free and unencumbered software released into the public domain.
+        return `This is free and unencumbered software released into the public domain.
 
     Anyone is free to copy, modify, publish, use, compile, sell, or
     distribute this software, either in source code form or as a compiled
@@ -325,8 +325,8 @@ function renderLicenseSection(license, username) {
     For more information, please refer to <http://unlicense.org/>`
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// TODO: Create a function that returns the license link of README
+// If there is no license, return a link to the unlicensed page
 function renderLicenseLink(license) {
     if (license === "MIT") {
         return `https://opensource.org/licenses/MIT
@@ -340,33 +340,29 @@ function renderLicenseLink(license) {
     if (license === 'BSD') {
         return `https://opensource.org/licenses/BSD-3-Clause
     ` }
-    else 
-    return `https://unlicense.org/
+    else
+        return `https://unlicense.org/
     `
 }
 
+// create a function that returns a badge based on contributions status, if contributing not allowed return "no contributions allowed"
 function renderContributingBadge(contributing) {
     if (contributing === 'Yes') {
         return `[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)`
-        
+
     }
     else
-    return "No contributions allowed"
-    }
-
-    function renderContributingLink(contributing) {
-        if (contributing === 'Yes') {
-            return `https://www.contributor-covenant.org/`           
-        }
-        else
-        return ""
-        }
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
+        return "No contributions allowed"
 }
 
-module.exports = {renderLicenseBadge,renderLicenseLink,renderLicenseSection, renderContributingBadge,renderContributingLink};
+// create  a function that returns the link to the contributor covenant website if contribution is allowed, if not allowed return an empty string
+function renderContributingLink(contributing) {
+    if (contributing === 'Yes') {
+        return `https://www.contributor-covenant.org/`
+    }
+    else
+        return ""
+}
+
+// create an export so that you can export the functions created into the main js folder
+module.exports = { renderLicenseBadge, renderLicenseLink, renderLicenseSection, renderContributingBadge, renderContributingLink };
