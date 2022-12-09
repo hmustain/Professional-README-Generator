@@ -21,7 +21,7 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If user selects "n/a" then return unlicensed badge/link
-function renderLicenseLink(license, username) {
+function renderLicenseSection(license, username) {
     if (license ==="MIT") {
         return `Copyright 2022 ${username}
 
@@ -327,7 +327,40 @@ function renderLicenseLink(license, username) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseLink(license) {
+    if (license === "MIT") {
+        return `https://opensource.org/licenses/MIT
+        `}
+    if (license === 'Apache') {
+        return `https://opensource.org/licenses/Apache-2.0
+        `}
+    if (license === 'GPL') {
+        return `https://www.gnu.org/licenses/gpl-3.0
+      `}
+    if (license === 'BSD') {
+        return `https://opensource.org/licenses/BSD-3-Clause
+    ` }
+    else 
+    return `https://unlicense.org/
+    `
+}
+
+function renderContributingBadge(contributing) {
+    if (contributing === 'Yes') {
+        return `[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)`
+        
+    }
+    else
+    return ""
+    }
+
+    function renderContributingLink(contributing) {
+        if (contributing === 'Yes') {
+            return `https://www.contributor-covenant.org/`           
+        }
+        else
+        return "N/A"
+        }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -336,4 +369,4 @@ function generateMarkdown(data) {
 `;
 }
 
-module.exports = {renderLicenseBadge,renderLicenseLink};
+module.exports = {renderLicenseBadge,renderLicenseLink,renderLicenseSection, renderContributingBadge,renderContributingLink};

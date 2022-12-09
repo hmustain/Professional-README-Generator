@@ -2,12 +2,12 @@
 // Went back to lesson 20 to find the files to attach at the top
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {renderLicenseBadge, renderLicenseLink} = require ("./generateMarkdown");
+const {renderLicenseBadge, renderLicenseLink, renderLicenseSection, renderContributingBadge,renderContributingLink} = require ("./generateMarkdown");
 
 
 // TODO: Create an array of questions for user input
 // prev lesson 20 and youtube video https://www.youtube.com/watch?v=2VUQABoFOqw
-const generateReadme = ({ username, title, description, installation, usage, credits, license, email, github, gurl}) =>
+const generateReadme = ({ username, title, description, installation, usage, credits, license, email, github, gurl, contributing}) =>
 
 `# ${title}
 ${renderLicenseBadge(license)}
@@ -32,15 +32,21 @@ ${usage}
 ## Credits
 ${credits}
 
+## Contributing
+${renderContributingBadge(contributing)}
+${renderContributingLink(contributing)}
+
+
 ## License
 ${renderLicenseBadge(license)}
-${renderLicenseLink(license, username)}
+${renderLicenseSection(license, username)}
+${renderLicenseLink(license)}
 
 
 
 ## Questions
 If you have questions and would like to email me please email me @ ${email} <br>
-My GitHub user name and link to my profile can be found here <a href="${gurl}">${github}</a>
+My GitHub user name and link to my profile can be found by clicking my username <a href="${gurl}">${github}</a>
 
 `
 
@@ -49,7 +55,7 @@ inquirer
       {
         type: 'input',
        name: 'username',
-       message: 'What is your first and last name',
+       message: 'What is your first and last name?',
        validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
      },
        {
@@ -105,6 +111,12 @@ inquirer
         name: 'credits',
         message: 'Who do you credit for this project?',
         validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
+      },
+      {
+        type: 'list',
+        name: 'contributing',
+        message: 'Do you want to allow other developers to contribute to your project?',
+        choices: ['Yes', 'No'],
       },
     ])
 
