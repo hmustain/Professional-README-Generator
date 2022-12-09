@@ -22,7 +22,7 @@ First need to make sure you have node.js installed. Once you have confirmed node
 To run this application, cd into the correct folder in VS Code and run node + the title of your JS Folder. For instance node index.js
 
 To see how this application is used, please watch the video below.
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/23dd3c87a0af458f82db92a38b0fbe56" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+Loom | Free Screen & Video Recording Software | Loom - 9 December 2022 - Watch Video
 
 ## Credits
 Hunter Mustain, along with all of our class TAs and the Instructor. Also credit official documentation from MDN and W3 schools, as well as youtube videos that have been credited in their respective comment section .
