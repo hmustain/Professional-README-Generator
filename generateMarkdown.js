@@ -351,7 +351,7 @@ function renderContributingBadge(contributing) {
         
     }
     else
-    return ""
+    return "No contributions allowed"
     }
 
     function renderContributingLink(contributing) {
@@ -359,7 +359,7 @@ function renderContributingBadge(contributing) {
             return `https://www.contributor-covenant.org/`           
         }
         else
-        return "N/A"
+        return ""
         }
 
 // TODO: Create a function to generate markdown for README

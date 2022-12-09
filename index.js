@@ -7,7 +7,7 @@ const {renderLicenseBadge, renderLicenseLink, renderLicenseSection, renderContri
 
 // TODO: Create an array of questions for user input
 // prev lesson 20 and youtube video https://www.youtube.com/watch?v=2VUQABoFOqw
-const generateReadme = ({ username, title, description, installation, usage, credits, license, email, github, gurl, contributing}) =>
+const generateReadme = ({ username, title, description, installation, usage, credits, license, email, github, gurl, contributing, tests}) =>
 
 `# ${title}
 ${renderLicenseBadge(license)}
@@ -20,7 +20,9 @@ ${description}
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
+- [Contributing](#contributing)
 - [License](#license)
+- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
@@ -33,16 +35,16 @@ ${usage}
 ${credits}
 
 ## Contributing
-${renderContributingBadge(contributing)}
+${renderContributingBadge(contributing)} <br>
 ${renderContributingLink(contributing)}
-
 
 ## License
 ${renderLicenseBadge(license)}
 ${renderLicenseSection(license, username)}
 ${renderLicenseLink(license)}
 
-
+## Tests
+${tests}
 
 ## Questions
 If you have questions and would like to email me please email me @ ${email} <br>
@@ -117,6 +119,12 @@ inquirer
         name: 'contributing',
         message: 'Do you want to allow other developers to contribute to your project?',
         choices: ['Yes', 'No'],
+      },
+      {
+        type: 'input',
+        name: 'tests',
+        message: 'Enter all the different tests that can be performed with code examples. If not, just put n/a',
+        validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
       },
     ])
 
