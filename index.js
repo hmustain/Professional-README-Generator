@@ -4,11 +4,10 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const {renderLicenseBadge, renderLicenseLink} = require ("./generateMarkdown");
 
-// const { title } = require('process');
 
 // TODO: Create an array of questions for user input
 // prev lesson 20 and youtube video https://www.youtube.com/watch?v=2VUQABoFOqw
-const generateReadme = ({ title, description, installation, usage, credits, license, email, github, gurl}) =>
+const generateReadme = ({ name, title, description, installation, usage, credits, license, email, github, gurl}) =>
 
 `# ${title}
 ${renderLicenseBadge(license)}
@@ -47,6 +46,12 @@ My GitHub user name and link to my profile can be found here <a href="${gurl}">$
 
 inquirer
     .prompt([
+      {
+        type: 'input',
+       name: 'username',
+       message: 'What is your first and last name',
+       validate: (data)=>{ if(data){return true} else {return 'You must enter information to continue'}}
+     },
        {
          type: 'input',
         name: 'title',
@@ -117,3 +122,5 @@ inquirer
 
 // Function call to initialize app
 // init();
+
+module.exports = {generateReadme};

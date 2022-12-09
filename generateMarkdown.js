@@ -1,5 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+const {generateReadme} = require ("./index")
+
 function renderLicenseBadge(license) {
     if (license === "MIT") {
         return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -22,7 +24,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
     if (license ==="MIT") {
-        return `Copyright <2022> <COPYRIGHT HOLDER>
+        return `Copyright 2022 ${username}
 
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         
@@ -285,7 +287,7 @@ function renderLicenseLink(license) {
     if (license === "BSD") {
         return `Note: This license has also been called the "New BSD License" or "Modified BSD License". See also the 2-clause BSD License.
 
-        Copyright <YEAR> <COPYRIGHT HOLDER>
+        Copyright 2022 ${username}
         
         Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
         
