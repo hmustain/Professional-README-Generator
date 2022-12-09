@@ -7,7 +7,7 @@ const {renderLicenseBadge, renderLicenseLink} = require ("./generateMarkdown");
 
 // TODO: Create an array of questions for user input
 // prev lesson 20 and youtube video https://www.youtube.com/watch?v=2VUQABoFOqw
-const generateReadme = ({ name, title, description, installation, usage, credits, license, email, github, gurl}) =>
+const generateReadme = ({ username, title, description, installation, usage, credits, license, email, github, gurl}) =>
 
 `# ${title}
 ${renderLicenseBadge(license)}
@@ -34,7 +34,7 @@ ${credits}
 
 ## License
 ${renderLicenseBadge(license)}
-${renderLicenseLink(license)}
+${renderLicenseLink(license, username)}
 
 
 
@@ -122,5 +122,3 @@ inquirer
 
 // Function call to initialize app
 // init();
-
-module.exports = {generateReadme};

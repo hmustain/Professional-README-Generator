@@ -1,6 +1,5 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-const {generateReadme} = require ("./index")
+// If user selects "n/a" then return unlicensed badge/link
 
 function renderLicenseBadge(license) {
     if (license === "MIT") {
@@ -21,8 +20,8 @@ function renderLicenseBadge(license) {
 }
 
 // TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
+// If user selects "n/a" then return unlicensed badge/link
+function renderLicenseLink(license, username) {
     if (license ==="MIT") {
         return `Copyright 2022 ${username}
 
